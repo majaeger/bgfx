@@ -196,6 +196,9 @@ dofile (path.join(BX_DIR, "scripts/toolchain.lua"))
 if not toolchain(BGFX_BUILD_DIR, BGFX_THIRD_PARTY_DIR) then
 	return -- no action specified
 end
+if _ACTION ~= nil and _ACTION:match "^vs2019" then
+	premake.vstudio.toolset = "v142"
+end
 
 function copyLib()
 end
@@ -301,7 +304,7 @@ function exampleProjectDefaults()
 			"DelayImp",
 		}
 
-	configuration { "vs201*", "x32 or x64 or arm or arm64" }
+	configuration { "vs201*", "x32 or x64" }
 		linkoptions { -- this is needed only for testing with GLES2/3 on Windows with VS201x
 			"/DELAYLOAD:\"libEGL.dll\"",
 			"/DELAYLOAD:\"libGLESv2.dll\"",
@@ -314,7 +317,7 @@ function exampleProjectDefaults()
 			"psapi",
 		}
 
-	configuration { "vs20*", "x32 or x64 or arm or arm64" }
+	configuration { "vs20*", "x32 or x64" }
 		links {
 			"gdi32",
 			"psapi",
