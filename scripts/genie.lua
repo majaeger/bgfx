@@ -304,7 +304,7 @@ function exampleProjectDefaults()
 			"DelayImp",
 		}
 
-	configuration { "vs201*", "x32 or x64" }
+	configuration { "vs201*", "x32 or x64 or arm or arm64" }
 		linkoptions { -- this is needed only for testing with GLES2/3 on Windows with VS201x
 			"/DELAYLOAD:\"libEGL.dll\"",
 			"/DELAYLOAD:\"libGLESv2.dll\"",
@@ -317,7 +317,7 @@ function exampleProjectDefaults()
 			"psapi",
 		}
 
-	configuration { "vs20*", "x32 or x64" }
+	configuration { "vs20*", "x32 or x64 or arm or arm64" }
 		links {
 			"gdi32",
 			"psapi",
