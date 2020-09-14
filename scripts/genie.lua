@@ -128,6 +128,13 @@ solution "bgfx"
 		platforms {
 			"Native", -- let xcode decide based on the target output
 		}
+	elseif _ACTION ~= nil and _ACTION:match "^vs2019" then
+		platforms {
+			"x32",
+			"x64",
+			"arm",
+			"arm64",
+		}
 	else
 		platforms {
 			"x32",
@@ -348,6 +355,10 @@ function exampleProjectDefaults()
 	configuration { "ARM", "winstore*" }
 		targetdir (path.join(BGFX_BUILD_DIR, "arm_" .. _ACTION, "bin", _name))
 		objdir (path.join(BGFX_BUILD_DIR, "arm_" .. _ACTION, "obj", _name))
+
+	configuration { "ARM64", "winstore*" }
+		targetdir (path.join(BGFX_BUILD_DIR, "arm64_" .. _ACTION, "bin", _name))
+		objdir (path.join(BGFX_BUILD_DIR, "arm64_" .. _ACTION, "obj", _name))
 
 	configuration { "mingw-clang" }
 		kind "ConsoleApp"

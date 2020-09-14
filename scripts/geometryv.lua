@@ -103,6 +103,9 @@ project ("geometryv")
 		targetdir (path.join(BGFX_BUILD_DIR, "arm_" .. _ACTION, "bin", _name))
 		objdir (path.join(BGFX_BUILD_DIR, "arm_" .. _ACTION, "obj", _name))
 
+		targetdir (path.join(BGFX_BUILD_DIR, "arm64_" .. _ACTION, "bin", _name))
+		objdir (path.join(BGFX_BUILD_DIR, "arm64_" .. _ACTION, "obj", _name))
+
 	configuration { "mingw-clang" }
 		kind "ConsoleApp"
 
