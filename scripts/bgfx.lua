@@ -203,6 +203,10 @@ function bgfxProjectBase(_kind, _defines)
 				path.join(DAWN_DIR, generator, "gen/src/include"),
 			}
 
+		configuration {}
+	end
+	
+	if _OPTIONS["with-windows"] == "10.0" then
 		configuration { "vs*" }
 			defines {
 				"NTDDI_VERSION=NTDDI_WIN10_RS2",
@@ -213,9 +217,7 @@ function bgfxProjectBase(_kind, _defines)
 				"_WIN32_WINNT=0x0A00",
 				"WINVER=0x0A00",
 			}
-
-		configuration {}
-    end
+	end
 
 	if _OPTIONS["with-amalgamated"] then
 		excludes {
